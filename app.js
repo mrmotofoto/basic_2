@@ -22,6 +22,37 @@ app.get('/about', function(req, res) {
    res.render("about"); 
 });
 
+app.get('/contact', function(req, res) {
+   res.render("contact"); 
+});
+
+app.post('/contact/send', function(req, res) {
+   var transporter = nodemailer.createTransport({
+       service: 'Gmail',
+       auth: {
+           user: "XXXX",
+           password: "XXXX"
+       }
+   });
+   var mailOptions = {
+       from: 'XXX',
+       to: 'XXX',
+       subject: 'Web Submit',
+       text: 'You have a submit with details...Name: ' +req.body.name+ ' Email: ' +req.body.email+ ' Message: ' +req.body.message,
+       html: '<p>You have a submit with details...</p><ul><li>Name: '+req.body.name+'</li><li>Email: '+req.body.email+'</li><li>Message: '+req.body.message+'</li></ul>'
+       
+   };
+   transporter.sendMail(mailOptions, function(error, info) {
+      if(error) {
+          console.log(error);
+          res.redirect('/');
+      } else {
+          console.log('Message Sent: ' + info.response);
+      }
+   });
+});
+
+
 app.listen(process.env.PORT, process.env.IP,  function(){
    console.log("Server Is Running"); 
 });
