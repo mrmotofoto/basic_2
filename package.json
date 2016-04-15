@@ -1,0 +1,25 @@
+{
+  "name": "basic_site_2",
+  "version": "1.0.0",
+  "description": "basic  Node Site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmotofoto/basic_2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrmotofoto/basic_2/issues"
+  },
+  "homepage": "https://github.com/mrmotofoto/basic_2#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "body-parser": "*",
+    "jade": "*",
+    "nodemailer": "*"
+  }
+}
